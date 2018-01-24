@@ -12,7 +12,10 @@ public class Tour implements IPile<Disque>{
 	@Override
 	public boolean empiler(Disque d) {
         boolean res=false;
-        if(disques.isEmpty()){
+        if(d.d <= 0){
+            res = false;
+        }
+        else if(disques.isEmpty()){
             disques.offer(d);
             res=true;
         }

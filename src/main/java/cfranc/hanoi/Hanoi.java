@@ -7,7 +7,14 @@ public class Hanoi {
 	Tour tourDest;
 
 	public Hanoi(int n){
-		// TODO ...
+            this.tourInit = new Tour(n);
+            this.tourInter = new Tour(n);
+            this.tourDest = new Tour(n);
+            
+            for(int i = n;i > 0; i--){
+                Disque d = new Disque(i);
+                tourInit.empiler(d);
+            }
 	}
 
 	
@@ -24,10 +31,10 @@ public class Hanoi {
 	}
 	
 	public void bougerSommet(Tour from, Tour to) {
-		tourInit = new Tour();
-		tourInter = new Tour();
-		tourDest = new Tour();
-		// TODO ...
+		 Disque d = from.depiler();
+                if(d != null){
+                    to.empiler(d);
+                }
 	}
 
 	public void deplacer(int nbDisque, Tour from, Tour to, Tour by){
